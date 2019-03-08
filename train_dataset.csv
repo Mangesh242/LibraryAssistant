@@ -1,0 +1,11 @@
+good book,pos
+better book,pos
+not good book,neg
+bad book,neg
+not bad,pos
+love book,pos
+not love book,neg
+amazing book,pos
+not amazing book,neg
+worst book,neg
+best book,pos

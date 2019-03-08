@@ -1,0 +1,30 @@
+{% extends "inherited_navigation.html" %}
+
+{% block body %}
+
+
+<form action="{{url_for('before_submit_review')}}" method="post">
+<table>
+	<th><tr>
+		{% if information%}	
+		<td>Issued Book List</td>
+		</tr>
+	</th>
+	
+	{% for i in information %}
+	<tr>
+		<td>
+		<input type="submit" value="{{ i }}" name="book_name"></td>
+		</td>		
+	</tr>	
+	{% endfor %}
+	{% endif %}
+	{{string}}
+</table>
+
+</form>
+
+
+
+
+{% endblock  %} 

@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.sidenav12 {
+
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px;
+  margin-right: 290px;  /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 0px;
+  width: 66%;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+/*                                          for search bar in books.html */
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+td,  {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+td{
+  font-size: 15px;
+}
+
+
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+</style>
+
+
+
+
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="{{url_for('home')}}">Home</a>
+  <a href="{{url_for('profile')}}">Profile</a>
+  <a href="{{url_for('books')}}">Books</a>
+  <a href="{{url_for('issued_books')}}">Issued Books</a>
+  <a href="#clients">Events</a>
+  <a href="#contact">Contact us</a>
+  <a href="{{url_for('logout')}}">LOGOUT</a>
+</div>
+<!--
+<div class="sidenav12">
+  
+</div>
+-->
+<div class="sidenav12">
+  <iframe
+    allow="microphone;"
+    width="300"
+    height="650" 
+    position="fixed"
+    src="https://console.dialogflow.com/api-client/demo/embedded/84fc2022-f688-4d26-87be-32e25953fa88">
+</iframe>
+</div>
+<div class="main">
+  {% block body %}
+
+
+{% endblock  %} 
+  
+</div>
+   
+</body>
+</html> 

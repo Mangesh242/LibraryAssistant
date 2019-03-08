@@ -1,0 +1,46 @@
+{% extends "inherited_navigation.html" %}
+{% block body %}
+
+	
+	<form action="{{url_for('add_book_after1')}}" method="post">
+	{% if string %}
+		<label>{{string}}</label>
+		<h1> Add more books </h1>
+
+	{% endif %}
+		<hr>
+	<br>
+	<h1>Information of Book</h1>
+	<br>
+<table>		
+	<tr>
+		<label>Author: </label>
+		<input type='text' name='author_name' placeholder="Author" required="">
+
+		<br>
+		<br>
+		<label>Title:</label>
+		<input type='text' name='title_name' placeholder="title" required="">
+		<br>
+		<br>
+		<label>Branch:</label>
+		<input type='text' name='branch_name' placeholder="branch" required="">
+		<br>
+		<br>
+		
+		<label>Domain:</label>
+		<input type='text' name='domain_name' placeholder="domain" required="">
+		<br>
+		<br>
+
+		<label>Publisher:</label>
+		<input type='text' name='publiser_name' placeholder="publiser" required="">
+		<br>
+		<br>		
+	</tr>
+
+</table>
+		<button input type="submit">Click to add book</button>
+
+</form>
+{% endblock %}

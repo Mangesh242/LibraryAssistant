@@ -1,0 +1,22 @@
+{% extends "inherited_navigation.html" %}
+{% block body %}
+<div class="main">
+
+<h1><b>Profile Information</b></h1>
+  <table class="table2">
+        <tr><td>Username</td><td>=>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>{{information.username}}</tr>
+            <tr><td>First_Name    </td><td>=></td><td>{{information.fname}}</tr>
+   
+                <tr><td>Last_Name   </td><td>=></td><td>{{information.lname}}</tr>
+                    <tr><td>Contact_No</td><td>=></td><td>{{information.contact_no}}</tr>
+                        <tr><td>Email Id</td><td>=></td><td>{{information.email}}</tr></td>
+
+
+</table>  
+<a href="{{url_for('edit_page')}}"><button> Edit Information</button></a>
+</div>
+{% if information.username == 'admin' %}
+	<br><a href="{{url_for('add_book')}}"><button>Add Books</button></a>
+	<a href="{{url_for('delete_book')}}"><button>Delete Books</button></a>
+{% endif %}
+{% endblock  %} 

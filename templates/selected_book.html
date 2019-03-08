@@ -1,0 +1,41 @@
+{% extends "inherited_navigation.html" %}
+
+{% block body %}
+
+<form action="{{url_for('issued_books')}}" method="post">
+
+	<h1>Information of Book</h1>
+<table>		
+	<tr>
+		<label>Author: </label>
+		<input type='text' name='title_name' value="{{information.title}}">
+
+		<br>
+		<br>
+		<label>Title:</label>
+		<input type='text' name='title_name' value="{{information.title}}">
+		<br>
+		<br>
+		<label>Branch:</label>
+		<input type='text' value="{{information.branch}}">
+		<br>
+		<br>
+		
+		<label>Domain:</label>
+		<input type='text' value="{{information.domain}}">
+		<br>
+		<br>
+
+		<label>Publisher:</label>
+		<input type='text' value="{{information.publisher}}">
+		<br>
+		<br>
+
+		<!---<td><input type="submit" name="title_name" value="{{information.title}}"></td>--->
+		
+	</tr>
+
+</table>
+	<button input type="submit">Click to issue a book</button>
+</form>
+{% endblock  %} 

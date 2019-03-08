@@ -1,0 +1,46 @@
+{% extends "inherited_navigation.html" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <br>
+                <form method=POST action="{{ url_for('Edit_info') }}">
+                    <div class="form-group">
+                    
+                    
+
+                    <label for="exampleInputFirstName">First Name</label>
+                    <input type="text" class="form-control" name="fname" placeholder={{information.fname}} required="">
+
+                    
+                    <label for="exampleInputLastName">Last Name</label>
+                    <input type="text" class="form-control" name="lname" placeholder={{information.lname}} required="">
+
+                    <label for="exampleInputUsername">Age</label>
+                    <input type="text" class="form-control" name="age" placeholder="Age" required="">
+                    
+                    
+                    <label for="exampleInputPassword">Year</label>
+                    <input type="text" class="form-control" name="year" placeholder="FE/SE/TE/BE" required="">
+
+                    <label for="exampleInputUsername">Branch</label>
+                    <input type="text" class="form-control" name="branch" placeholder="Branch" required="">
+                    
+                    <label for="exampleInputContactNo">Contact No</label>
+                    <input type="text" class="form-control" name="contact_no" placeholder={{information.contact_no}} required="">
+                    
+                    <label for="exampleInputEmail">Email Id</label>
+                    <input type="text" class="form-control" name="email" placeholder={{information.email}} required="">
+                   
+                          <button type="submit" class="btn btn-primary btn-block">Save</button>
+                 
+
+                   </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock  %} 
