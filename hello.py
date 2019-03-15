@@ -2,7 +2,7 @@ from flask import Flask,request, render_template, url_for, session, redirect
 from flask_pymongo import PyMongo
 import csv
 import review_rating_cal as rc
-
+#hey
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'mongologin'
 app.config['MONGO_URI'] = 'mongodb://Abhijeet123:90119822@cluster0-shard-00-00-qe0x2.mongodb.net:27017,cluster0-shard-00-01-qe0x2.mongodb.net:27017,cluster0-shard-00-02-qe0x2.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true'
