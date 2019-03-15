@@ -9,3 +9,42 @@ amazing book,pos
 not amazing book,neg
 worst book,neg
 best book,pos
+not,neg
+very good book,pos
+better book,pos
+not good book,neg
+bad book,neg
+not bad,pos
+love book,pos
+not love book,neg
+amazing book,pos
+not amazing book,neg
+worst book,neg
+best book,pos
+not,neg
+not explain well,neg
+explain well,pos
+go for it,pos
+not go for it,neg
+nice book,pos
+worst book ever seen,neg
+get another one,neg
+comment,pos
+good book reading since 2 years,pos
+concepts explained well,pos
+go,pos
+really want to issue,pos
+good,pos
+go,pos
+basic concepts explained well,pos
+well,pos
+not well,neg
+not go,neg
+not issue,neg
+not worst book,pos
+not bad book,pos
+benefit,pos
+not beneficial,neg
+not best,neg
+big vision,pos
+bright,pos
