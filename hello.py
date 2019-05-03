@@ -2,7 +2,10 @@ from flask import Flask,request, render_template, url_for, session, redirect
 from flask_pymongo import PyMongo
 import csv
 import review_rating_cal as rc
+import matplotlib.pyplot as plt
 #hey
+#second comment added for testing the use of git
+
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'mongologin'
 app.config['MONGO_URI'] = 'mongodb://Abhijeet123:90119822@cluster0-shard-00-00-qe0x2.mongodb.net:27017,cluster0-shard-00-01-qe0x2.mongodb.net:27017,cluster0-shard-00-02-qe0x2.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true'
@@ -232,27 +235,34 @@ def search_book():
 	if request.method=='POST':
 		users=mongo.db.books_lists
 		title = []
+		
+		
 		data = list(users.find({'domain':request.form['domain']}))
 		for i in range(len(data)):
 			dict1 = data[i]
 			title.append(dict1.get('title'))
 		dict2={}
-		list_of_review=[]
+		list_of_review2=[]
 		reviews=[]
 		user=mongo.db.total_review_count
+		count_for_graph=[]
 
 		user_review=mongo.db.reviews
 		for i in range(len(title)):
 			data_dict = user.find_one({'book_name':title[i]})
 			if data_dict:
-				list_of_review.append([title[i],data_dict.get('positive_counter'),data_dict.get('negative_counter'),data_dict.get('total_count')])
+				list_of_review2.append([title[i],data_dict.get('positive_counter'),data_dict.get('negative_counter'),data_dict.get('total_count')])
 				data_review=user_review.find_one({"book_name":title[i]})
 				reviews.append([title[i],data_review.get("comments")])
 
 			else:
-				list_of_review.append([title[i],0,0,0])	
+				list_of_review2.append([title[i],0,0,0])	
 				#dict2={'book_name':title[i],'positive':data_dict.get('positive_counter'),'negative':data_dict.get('negative_counter'),'total_review':data_dict.get('total_count')}
-		return render_template("endresult.html",information=list_of_review,info=reviews)
+		x=title
+		y=list_of_review2[1]
+		#plt.bar(x,y)
+		#plt.savefig('static/books_read2.png')
+		return render_template("endresult.html",information=list_of_review2,info=reviews,x=x,y=y)
 			
 
 if __name__=="__main__":
