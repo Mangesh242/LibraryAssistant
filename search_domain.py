@@ -40,12 +40,11 @@ def find_domain(input_string):
     --------------Read this dictionary from DataBase, from Flask --------------
     """
     di = {"c":["c","clanguage","pointers","basic","simple","function"],
-          "cpp":["cpp","c++","inheritance","polymorphism","encapsulation","function"],
-           "Operating System":["Operating System","threading"],
-           "Data Structures":["Data Structures","stack","queue","linklist","array"],
-           "Computer Architecture":["Processes","computer Architecture","architecture"],
-           "Database Management System":["Database Management System","Databases","mongodb","sql"],
-           "Database Management":["Database Management"]
+          "C++ Programming":["cpp","c++","inheritance","polymorphism","encapsulation","function"],
+           "Operating System":["Operating System","threading","os"],
+           "Data Structures":["Data Structures","stack","queue","linklist","array","ds"],
+           "Computer Architecture":["Processes","computer Architecture","architecture","coa"],
+           "Database Management System":["Databases","Database Management System","mongodb","sql","dbms"]
           }
     #--------------------------------------------------------------------------
 
@@ -67,9 +66,6 @@ def find_domain(input_string):
         return domain
     #else:  return 0
 ##=============================================================================
-domain="good book for threading"
-result=find_domain(domain)
-print(result)
 
 
 

@@ -1,41 +1,29 @@
 {% extends "inherited_navigation.html" %}
 
  {%  block body %}
-<script type="text/javascript">
-		
-	function myFunction() 
-	{
-  				//var x = document.getElementById("query");
-  				var x=document.forms["myForm"]["x"].value;
-  				var y=document.forms["myForm"]["y"].value;
-  				document.write(x);
-  				document.write(y);
-  
-	}
-</script>
-
-
-<table class="table table-sm">
-	<thead class="thead-dark">
+{% if information %}
+<form action="{{url_for('single_book')}}" method="post">
+	<table>
 	<tr>
-		<th>Title</th>
-		<th>Positive Review</th>
-		<th>Negative Review</th>
-		<th>Total</th>
-	</tr>
-	</thead>	
-
-	
+	<th>Title</th>
+	<th>Positive Review</th>
+	<th>Negative Review</th>
+	<th>Total</th>
 	{% for i in information %}
-	 <tr>
-	   <td>{{i[0]}}</td>
-	   <td>{{i[1]}}</td>
-	   <td>{{i[2]}}</td>
-	   <td>{{i[3]}}</td>
-	  </tr>
-	{% endfor %}
+	<tr>
+	  
+	  <td><input type="submit" name="title_name" value="{{i[0]}}"></td>
+	  <td>{{i[1]}}</td>
+	  <td>{{i[2]}}</td>
+	  <td>{{i[3]}}</td>
+	{% endfor %}  
 
 </table>
+</form>
+
+{% else %}
+<h2>no record</h2>
+{% endif %}
 
 
 {% if info%}
@@ -49,16 +37,4 @@
 
 {% endfor %} 
 {% endif %}
-
-
-
-
-
-	<form name="myForm" onsubmit="myFunction()" >
-	 <input type="text" name={{x}}>
-	 <input type="text" name={{y}}>
-	<input type="submit" value="showGraph">
-	</form>
-
-
 {% endblock %}

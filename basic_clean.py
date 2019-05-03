@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*- 
 
 import re
 from nltk.corpus import stopwords 
@@ -48,7 +46,6 @@ def rm_stop_wd(clean_string):
     for w in remove_from_stop_words:
         if w in stop_words:
             stop_words.remove(w)
-    
     
     #print(stop_words) # List of Stop words that we need...
     # Tokenization

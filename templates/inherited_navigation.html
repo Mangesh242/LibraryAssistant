@@ -73,7 +73,7 @@ th {
   background-color: #4CAF50;
   color: white;
 }
-td,  {  
+td, th {  
   border: 1px solid #ddd;
   text-align: left;
 }
@@ -81,7 +81,7 @@ td,  {
 td{
   font-size: 15px;
 }
-/*                                          just added comment to check git */
+
 
 
 form.example button {
@@ -125,8 +125,8 @@ form.example::after {
   <a href="{{url_for('profile')}}">Profile</a>
   <a href="{{url_for('books')}}">Books</a>
   <a href="{{url_for('issued_books')}}">Issued Books</a>
-  <a href="#clients">Events</a>
-  <a href="#contact">Contact us</a>
+  <a href="{{url_for('events')}}">Events</a>
+  <a href="{{url_for('contact')}}">Contact us</a>
   <a href="{{url_for('logout')}}">LOGOUT</a>
 </div>
 <!--
@@ -137,7 +137,7 @@ form.example::after {
 <div class="sidenav12">
   <iframe
     allow="microphone;"
-    width="300"
+    width="270"
     height="650" 
     position="fixed"
     src="https://console.dialogflow.com/api-client/demo/embedded/84fc2022-f688-4d26-87be-32e25953fa88">
