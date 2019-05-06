@@ -41,10 +41,10 @@ def find_domain(input_string):
     """
     di = {"c":["c","clanguage","pointers","basic","simple","function"],
           "C++ Programming":["cpp","c++","inheritance","polymorphism","encapsulation","function"],
-           "Operating System":["Operating System","threading","os"],
-           "Data Structures":["Data Structures","stack","queue","linklist","array","ds"],
-           "Computer Architecture":["Processes","computer Architecture","architecture","coa"],
-           "Database Management System":["Databases","Database Management System","mongodb","sql","dbms"]
+           "Operating System":["threading","operating_system","threading","os"],
+           "Data Structures":["data_Structures","stack","queue","linklist","array","ds"],
+           "Computer Architecture":["processes","computer_architecture","architecture","coa"],
+           "Database Management System":["database_management","mongodb","sql","dbms"]
           }
     #--------------------------------------------------------------------------
 

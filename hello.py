@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 
 myclient =pymongo.MongoClient("mongodb://localhost:27017/")
-mydb=myclient["Library"]	
+mydb=myclient["Library"]						#database added 
 
 api=Api(app)
 CORS(app)
