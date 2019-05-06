@@ -1,4 +1,4 @@
-from flask import Flask,request, render_template, url_for, session, redirect
+from flask import Flask,request, render_template, url_for, session, redirect,jsonify
 from flask_pymongo import PyMongo
 import csv
 import review_rating_cal as rc
@@ -8,6 +8,7 @@ import datetime
 from flask_cors import CORS 
 import pymongo
 from flask_restful import Resource, Api
+
 
 
 app = Flask(__name__)
@@ -202,41 +203,44 @@ def before_submit_review():
 
 @app.route("/submit_review",methods=['POST','GET'])
 def submit_review():
+
 	if request.method == 'POST':
 		#users=mongo.db.reviews
+		
 		users=mydb['reviews']
+		
 		review=request.form['review']
 		book_name=request.form['book_name']
 
 		result=rc.review_(review)
+		
+		book_select=list(users.find({'book_name':request.form['book_name']}))
+		
 
-		if users.find_one({'book_name':book_name}):
-			if users.find_one({'comments.username':session['username']}):
+		for i in book_select:
+			username=i['comments']['username']
+			if username==session['username']:
+				print("Same Username found")
 				return render_template("output_strings.html",string = "Already submitted Review")
-		else:	
-			users.insert_one({'book_name':request.form['book_name'],'comments':{'username':session['username'],'review':review}})
-		#review_count.insert_one({"book_name":request.form['book_name'],""})
-		#users = mongo.db.total_review_count
-		#return "review submitted"
+				
+		users.insert_one({'book_name':request.form['book_name'],'comments':{'username':session['username'],'review':review}})
+		print("review inserted into the 'review' collection")
 
+		print("we are going to put in the 'total_review_count' in the data base  ")
 		#users = mongo.db.total_review_count
 		users=mydb['total_review_count']
 		if users.find_one({'book_name':book_name}):
-			if users.find_one({'book_name':book_name,'username':session['username']}):
-				#updating review function
-
-				return render_template("output_strings.html",string = "Already submitted Review")
+			if result=='pos':
+				users.find_one_and_update({'book_name':book_name},{"$inc":{"positive_counter":1 , "total_count" :1}})
 			else:
-				if result=='pos':
-					users.find_one_and_update({'book_name':book_name},{"$inc":{"positive_counter":1 , "total_count" :1}})
-				else:
-					users.find_one_and_update({'book_name':book_name},{"$inc":{"negative_counter":1 , "total_count" :1}})
+				users.find_one_and_update({'book_name':book_name},{"$inc":{"negative_counter":1 , "total_count" :1}})
 		else:
 			if result=="pos":
 				users.insert_one({'book_name':book_name,'username':session['username'],'positive_counter':1,'negative_counter':0,'total_count':1})
 			else:
 				users.insert_one({'book_name':book_name,'username':session['username'],'positive_counter':0,'negative_counter':1,'total_count':1})
-	return render_template("output_strings.html",string = "submitted Review")    	
+
+		return render_template("output_strings.html",string = "submitted Review to 'review' and 'total_review_count' collection")    	
 
 @app.route("/add_book")
 def add_book():
@@ -285,31 +289,47 @@ def search_book():
 		#print(result)
 		title1.clear()
 		dict1.clear()
-		print(len(title1)) 
-		
+		print(len(title1))
+		 											#finding out the result domain
+		print("domain : ",result)
+
+#list of all books under domain result		
 		data = list(users.find({'domain':result}))
-		
 
 		for i in range(len(data)):
 			dict1 = data[i]
-			title1.append(dict1.get('title'))
+			title1.append(dict1.get('title'))		#collected titles of all the books of domain
+		#return jsonify(title1)						#for checking whether all the titles saved or not 
+
+
 		print(len(title1)) 
+
 		dict2={}
-		list_of_review1=[]
-		reviews1=[]
+		list_of_review1=[]							#for string count and title of book's
+		reviews1=[]									#for storing text reviews 
 		dict2.clear()
 		list_of_review1.clear()
 		#user=mongo.db.total_review_count
+		
 		user=mydb['total_review_count']
 		#user_review=mongo.db.reviews
 		user_review=mydb['reviews']
+
+		#for saving text reviews 
+		for i in title1:
+			data_review=list(user_review.find({"book_name":i}))		#not able to accomodate all the books within one cursor
+			if data_review:
+				for j in range(len(data_review)):
+					reviews1.append([i,data_review[j].get("comments")])
+		#return jsonify(reviews1)						#for checking reviews properly stored or not
+
+
+		#for saving numbers 
 		for i in range(len(title1)):
 			data_dict = user.find_one({'book_name':title1[i]})
 			if data_dict:
 				list_of_review1.append([title1[i],data_dict.get('positive_counter'),data_dict.get('negative_counter'),data_dict.get('total_count')])
-				data_review=user_review.find_one({"book_name":title1[i]})
-				reviews1.append([title1[i],data_review.get("comments")])
-
+				
 			else:
 				list_of_review1.append([title1[i],0,0,0])	
 				#dict2={'book_name':title[i],'positive':data_dict.get('positive_counter'),'negative':data_dict.get('negative_counter'),'total_review':data_dict.get('total_count')}
