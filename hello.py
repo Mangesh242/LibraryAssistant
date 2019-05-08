@@ -345,6 +345,7 @@ def events():
 
 @app.route("/event_after",methods=['POST','GET'])
 def event_after():
+
 	list2=['next','previous','class']
 	#users = mongo.db.timetable
 	users=mydb['timetable']
@@ -362,8 +363,18 @@ def event_after():
 				hour=str(hour+1)
 				
 				#add extra zero to front if it's not there
-				hour=hour+'00'
+				hour=int(hour+'00')
+				
 				data=users.find_one({'time':hour})
+				
+				if data:
+					print(data)
+				else:
+					users.insert({'time':800,'subject':'Machine Learning'},
+								{'time':900,'subject':'Social Media Analytics'},
+								{'time':1000,'subject':'DAA'})
+					return "data not found"
+
 				lecture_name=str(data.get('subject'))
 				return render_template("output_strings.html",string = lecture_name)
 			else:
