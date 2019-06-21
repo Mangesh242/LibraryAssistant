@@ -1,3 +1,14 @@
-Code that goes along with a video I made here: https://www.youtube.com/watch?v=vVx1737auSE
+Installation :
+Flask, Pymongo, jsonify, Stop words, speech to text, 
+flask_restful,CORS,csv.
 
-This is for a user login system using Flask and MongoDB.
+How to run it:
+Run: python hello.py
+Admin: username:admin password:admin
+User : Create new account and used it.
+
+Flask : For building API's and handling webpages
+Database : Online Mongodb Atlas.
+
+
+
