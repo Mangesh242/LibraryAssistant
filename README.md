@@ -13,3 +13,4 @@ Flask : For building API's and handling webpages
 Database : Online Mongodb Atlas.
 
 Report : ProjectReport.pdf ProjectReport.docx
+PPT : https://docs.google.com/presentation/d/19cgt2vIxMIKp62t-8uZ4FwmVqmicBe363aNcTmaPNYg/edit?usp=sharing  
