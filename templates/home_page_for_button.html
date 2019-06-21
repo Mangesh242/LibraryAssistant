@@ -1,0 +1,21 @@
+{% extends "inherited_navigation.html" %}
+
+{% block body %}
+
+<form action="{{url_for('graph_selection')}}" method="post">
+  <div class="btn-group">
+    <h2>Click below to see graph of operating System books </h2>
+    <input class="button" type="submit" value="Operating System" name="ds"></input><br>
+    <h2>Click below to see graph of Data Structure books </h2>
+    <input class="button" type="submit" value="Data Structures" name="ds"></input><br>
+    <h2>Click below to see graph of C++ Programming books </h2>
+    <input class="button" type="submit" value="C++ Programming" name="ds"></input><br>
+    <h2>Click below to see graph of Computer Architecture books </h2>
+    <input class="button" type="submit" value="Computer Architecture" name="ds"></input><br>
+    <h2>Click below to see graph of Database Management System books </h2>
+    <input class="button" type="submit" value="Database Management System" name="ds"></input>
+  </div>  
+</form>
+
+
+{% endblock  %} 

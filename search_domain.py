@@ -39,12 +39,13 @@ def find_domain(input_string):
     """
     --------------Read this dictionary from DataBase, from Flask --------------
     """
-    di = {"c":["c","clanguage","pointers","basic","simple","function"],
-          "C++ Programming":["cpp","c++","inheritance","polymorphism","encapsulation","function"],
-           "Operating System":["threading","operating_system","threading","os"],
-           "Data Structures":["data_Structures","stack","queue","linklist","array","ds"],
-           "Computer Architecture":["processes","computer_architecture","architecture","coa"],
-           "Database Management System":["database_management","mongodb","sql","dbms"]
+    
+    di = {"c":["c","language","pointers","basic","simple","function","structure","basic","Programming"],
+          "C++ Programming":["cpp","c++","inheritance","polymorphism","encapsulation","function","Programming"],
+           "Operating System":["threading","operating","system","os","Programming","shell","script"],
+           "Data Structures":["data","Structures","stack","queue","linklist","array","ds","graph","tree"],
+           "Computer Architecture":["processes","computer","architecture","coa"],
+           "Database Management System":["database","management","mongodb","sql","dbms","data","base","db","mysql"]
           }
     #--------------------------------------------------------------------------
 

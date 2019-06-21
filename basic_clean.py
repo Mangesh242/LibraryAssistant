@@ -29,6 +29,23 @@ def clean_text(text):
     text=re.sub(r"that's","that is", text)
     text=re.sub(r"where's","where is", text)
     text=re.sub(r"what's","what is", text)
+    text=re.sub(r"shouldn't","should not", text)
+    text=re.sub(r"mustn't","must not", text)
+    text=re.sub(r"shan't","shall not", text)
+    text=re.sub(r"aren't","are not", text)
+    text=re.sub(r"didn't","did not", text)
+    text=re.sub(r"haven't","have not", text)    
+    text=re.sub(r"needn't","need not", text)  
+    text=re.sub(r"doesn't","does not", text)  
+    text=re.sub(r"couldn't","could not", text)  
+    text=re.sub(r"won't","will not", text)  
+    text=re.sub(r"mightn't","might not", text) 
+    text=re.sub(r"isn't","is not", text) 
+    text=re.sub(r"hadn't","had not", text) 
+    text=re.sub(r"wouldn't","would not", text) 
+    text=re.sub(r"hasn't","has not", text) 
+    text=re.sub(r"wasn't","was not", text) 
+    text=re.sub(r"weren't","were not", text)
     text = re.sub(r'[;“”’–,./:"''{}|\`~!@#$%^&*()-+_=]',"",text)
     text = re.sub(r'[\[\]]','',text)
     return text
@@ -40,8 +57,7 @@ def clean_text(text):
 def rm_stop_wd(clean_string):
     stop_words = set(stopwords.words('english')) 
     # we need following words in commensts so we are removing it from original stop word List 
-    remove_from_stop_words = ["not","shouldn't","don't","mustn't","shan't","aren't","didn't","haven't","needn't",
-             "doesn't","couldn't","won't","mightn't","isn't","hadn't","wouldn't","hasn't","wasn't","weren't"]
+    remove_from_stop_words = ["not","shouldn't","don't","mustn't","shan't","aren't","didn't","haven't","needn't",         "doesn't","couldn't","won't","mightn't","isn't","hadn't","wouldn't","hasn't","wasn't","weren't"]
     # print(stop_words) by defalut stop words..
     for w in remove_from_stop_words:
         if w in stop_words:

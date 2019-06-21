@@ -1,0 +1,14 @@
+{% extends "inherited_navigation.html" %}
+
+{% block body %}
+
+<h1>Welcome Admin : {{books_info.username}}</h1>
+<h1>List of all users</h1>
+	{% for i in books_info %}
+		<td>{{i.username}}</td><b>:-></b>
+
+		<td>{{i.issued_books}}</td><br><br>
+		
+	{% endfor %}
+
+{% endblock  %} 

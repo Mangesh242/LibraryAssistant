@@ -1,21 +1,26 @@
 {% extends "inherited_navigation.html" %}
 {% block body %}
 <div class="main">
+	<b><h1 style="text-align:center">User Profile Information</h1></b>
 
-<h1><b>Profile Information</b></h1>
-  
-       <h2>Username&nbsp;&nbsp;&nbsp;&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{information.username}}</b></h2>
-           <h2> First_Name&nbsp;&nbsp;&nbsp;&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{information.fname}}</b></h2>
-               <h2> Last_Name&nbsp;&nbsp;&nbsp;&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{information.lname}}</b></h2>
-                   <h2> Contact_No&nbsp;&nbsp;&nbsp;&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{information.contact_no}}</b></h2>
-                     <h2>  Email_Id&nbsp;&nbsp;&nbsp;&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{information.email}}</b></h2>
+	<div class="card">
+	 
+	  <p><b>Username</b>&nbsp;&nbsp;&nbsp;&nbsp;{{information.username}}</p>
+	  <p><b>Contact No</b>:&nbsp;&nbsp;&nbsp;&nbsp;{{information.contact_no}}</p>
+	  <p><b>First Name</b>:&nbsp;&nbsp;&nbsp;&nbsp;{{information.fname}}</p>
+	  <p><b>Last Name</b>:&nbsp;&nbsp;&nbsp;&nbsp;{{information.lname}}</p>
+	  
+	  <p><b>Email Id</b>:&nbsp;&nbsp;&nbsp;&nbsp;{{information.email}}</p>
 
+	<a style="color: white;" href="{{url_for('edit_page')}}"><button> Edit Information</button></a>
 
-  
-<a href="{{url_for('edit_page')}}"><button> Edit Information</button></a>
-</div>
 {% if information.username == 'admin' %}
-	<br><a href="{{url_for('add_book')}}"><button>Add Books</button></a>
-	<a href="{{url_for('delete_book')}}"><button>Delete Books</button></a>
+	<br><a style="color: white;"  href="{{url_for('add_book')}}"><button>Add Books</button></a>
+	<a style="color: white;"  href="{{url_for('delete_book')}}"><button>Delete Books</button></a>
+	</div>
+</div>
+
+
 {% endif %}
 {% endblock  %} 
+

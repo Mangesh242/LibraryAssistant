@@ -98,3 +98,53 @@ not beneficial,neg
 not best,neg
 big vision,pos
 bright,pos
+bad book ever i seen,neg
+basic concepts not explained well,neg
+no comment,neg
+Excellent,pos
+Superb,pos
+Surprising,pos
+helpful,pos
+not surprising,neg
+not so helpful,neg
+insist,pos
+Didn't expected,neg
+unexpected,neg
+wrong,neg
+wrongly,neg
+struggled,neg
+spoiled,neg
+spoiling,neg
+spoiler,neg
+poor,neg
+poorer,neg
+poorest,neg
+poorly,neg
+not poor,pos
+not poorer,pos
+not poorest,pos
+not poorly,pos
+outdated,neg
+useless,neg
+Not so complex,pos
+Amazing ever ,pos
+very cheap ,neg
+amazing book i ever ,pos
+very cheap quality ,neg
+never issue,neg
+not expected,neg
+I do not like the way concepts are explained,neg
+one can say not so bad,pos
+text is not so complex,pos
+concepts difficult explained,neg
+unworthy,neg
+bad sentence constructions,neg
+poor sentence constructions,neg
+not so bad,pos
+didnt expect,neg
+break the trust,neg
+not so bad,pos
+so complex to understand,neg
+complex to learn,neg
+not complex,pos
+unhappy with the explaination,neg

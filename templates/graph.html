@@ -1,0 +1,37 @@
+{% extends "inherited_navigation.html" %}
+
+{% block body %}
+
+
+<div class="ct-chart ct-perfect-fourth"></div>
+              <script>
+                var mychart;
+                var getData= $.get('/data');
+                
+                getData.done(function(results)
+                {
+                       var options={
+                        width:2000,
+                        height:1000,
+                      }
+
+
+                      mychart=new Chartist.Bar('.ct-chart', 
+                      {
+
+                        // A labels array that can contain any sort of values
+                        labels: results.book_lable,
+                        // Our series array that contains series objects or in this case series data arrays
+                        series: [results.number]
+
+                      },
+                      { height:600,width:1000, showLabel: true,axisX: {  offset: 100 , scaleMinSpace: 100},  axisY: { offset:100, onlyInteger: true}} ,
+
+    					options);
+
+
+                          });
+
+               
+            </script>
+{% endblock  %} 

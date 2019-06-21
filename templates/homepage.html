@@ -2,4 +2,50 @@
 
 {% block body %}
 <h1>Welcome :{{information.username}}</h1>
+<div class="ct-chart ct-perfect-fourth"></div>
+              <script>
+                var mychart;
+                var getData= $.get('/data_total');
+                
+                getData.done(function(results)
+                {
+
+
+
+                        
+
+
+                      var options={
+                        width:2000,
+                        height:1000,
+
+                      }
+
+
+                      mychart=new Chartist.Bar('.ct-chart', 
+                      {
+
+                        // A labels array that can contain any sort of values
+                        labels: /*for(var i=0;i<results.length;i+=1)
+                        		{results.book_lable[i]}
+                        /*{% for i in results %}
+                        		{i.book_lable}
+                        		{% endfor %}*/
+                        
+                        results.book_lable,
+                        // Our series array that contains series objects or in this case series data arrays
+                        series: [
+                          results.number
+                        ]
+
+                      },
+                      { height:2000,width:1000, showLabel: true,axisX: {  offset: 100,onlyInteger: true, scaleMinSpace: 100},  seriesBarDistance: 1000,  reverseData: true,horizontalBars: true,axisY: { offset:100}} ,
+
+    					options);
+
+
+                          });
+
+               
+            </script>
 {% endblock  %} 
